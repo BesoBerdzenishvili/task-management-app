@@ -27,7 +27,7 @@ const getBoard = async (req, res) => {
 
 // create a new board
 const createBoard = async (req, res) => {
-  const { title, description, status, subtasks } = req.body;
+  const { title, description, status, subtasks, boardName } = req.body;
 
   let emptyFields = [];
 
@@ -43,6 +43,9 @@ const createBoard = async (req, res) => {
   if (!subtasks || subtasks.length === 0) {
     emptyFields.push("subtasks");
   }
+  if (!boardName) {
+    emptyFields.push("boardName");
+  }
   if (emptyFields.length > 0) {
     return res
       .status(400)
@@ -51,7 +54,13 @@ const createBoard = async (req, res) => {
 
   // add to the database
   try {
-    const board = await Board.create({ title, description, status, subtasks });
+    const board = await Board.create({
+      title,
+      description,
+      status,
+      subtasks,
+      boardName,
+    });
     res.status(200).json(board);
   } catch (error) {
     res.status(400).json({ error: error.message });

@@ -20,6 +20,10 @@ const boardSchema = new Schema(
       type: Array,
       required: true,
     },
+    boardName: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
