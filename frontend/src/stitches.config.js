@@ -19,12 +19,6 @@ export const {
       magenta: "#645fc7",
     },
   },
-  media: {
-    bp1: "(min-width: 480px)",
-  },
-  utils: {
-    marginX: (value) => ({ marginLeft: value, marginRight: value }),
-  },
 });
 
 export const globalStyles = globalCss({
