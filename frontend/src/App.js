@@ -1,10 +1,4 @@
-import Test from "./Test";
 function App() {
-  return (
-    <div>
-      <Test />
-    </div>
-  );
+  return <div>App</div>;
 }
-
 export default App;
